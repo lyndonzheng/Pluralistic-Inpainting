@@ -92,11 +92,11 @@ def get_transform(opt):
             transform_list.append(transforms.RandomCrop(fsize))
         elif opt.resize_or_crop == 'crop':
             transform_list.append(transforms.RandomCrop(fsize))
-        if opt.augment:
+        if not opt.no_augment:
             transform_list.append(transforms.ColorJitter(0.0, 0.0, 0.0, 0.0))
-        if opt.flip:
+        if not opt.no_flip:
             transform_list.append(transforms.RandomHorizontalFlip())
-        if opt.rotation:
+        if not opt.no_rotation:
             transform_list.append(transforms.RandomRotation(5))
     else:
         transform_list.append(transforms.Resize(fsize))

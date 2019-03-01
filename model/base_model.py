@@ -151,6 +151,7 @@ class BaseModel():
                 # img_name = '%s_%s_%s.png' % (name, data_name, str(round(d_score.item(), 3)))
                 img_name = '%s_%s_%s.png' % (name, data_name, str(score))
             # save predicted image with discriminator score
+            util.mkdir(self.opt.results_dir)
             img_path = os.path.join(self.opt.results_dir, img_name)
             img_numpy = util.tensor2im(save_data[i].data)
             util.save_image(img_numpy, img_path)

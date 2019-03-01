@@ -87,7 +87,7 @@ def random_irregular_mask(img):
     return mask
 
 ###################################################################
-# multi scale and smooth loss for image generation
+# multi scale for image generation
 ###################################################################
 
 
@@ -108,68 +108,3 @@ def scale_pyramid(img, num_scales):
 
     scaled_imgs.reverse()
     return scaled_imgs
-
-
-def gradient_x(img):
-    gx = img[:, :, :-1, :] - img[:, :, 1:, :]
-    return gx
-
-
-def gradient_y(img):
-    gy = img[:, :, :, :-1] - img[:, :, :, 1:]
-    return gy
-
-
-def get_smooth(Images, num_scales):
-    """get the smotth loss"""
-    Image_gradient_x = [gradient_x(img) for img in Images]
-    Image_gradient_y = [gradient_y(img) for img in Images]
-
-    loss_x = [torch.mean(torch.abs(Image_gradient_x[i])) / 2 ** i for i in range(num_scales)]
-    loss_y = [torch.mean(torch.abs(Image_gradient_y[i])) / 2 ** i for i in range(num_scales)]
-
-    return sum(loss_x + loss_y)
-
-
-def get_gredient_loss(depths, Images, num_scales):
-    """calculate the gradient loss for depth"""
-    depth_gradient_x = [gradient_x(d) for d in depths]
-    depth_gradient_y = [gradient_y(d) for d in depths]
-
-    Image_gradient_x = [gradient_x(img) for img in Images]
-    Image_gradient_y = [gradient_y(img) for img in Images]
-
-    loss_x = [torch.mean(torch.abs(depth_gradient_x[i] - Image_gradient_x[i])) / 2 ** i for i in range(num_scales)]
-    loss_y = [torch.mean(torch.abs(depth_gradient_y[i] - Image_gradient_y[i])) / 2 ** i for i in range(num_scales)]
-
-    return sum(loss_x + loss_y)
-
-
-def img_mean_value(input):
-    mean_value = torch.ones_like(input)
-    mean_value[:, 0, :, :] = 0.5
-    mean_value[:, 1, :, :] = 0.5
-    mean_value[:, 2, :, :] = 0.5
-    return mean_value
-
-
-def add_point(img, point, width=4, color='red'):
-
-    x = point[0]
-    y = point[1]
-    if x + width > img.size(1):
-        x -=width
-    if y + width > img.size(2):
-        y -=width
-
-    if color == 'red':
-        img[0, x:x + width, y:y + width] = 1
-        img[1, x:x + width, y:y + width] = -1
-        img[2, x:x + width, y:y + width] = -1
-    elif color == 'blue':
-        img[0, x:x + width, y:y + width] = -1
-        img[1, x:x + width, y:y + width] = -1
-        img[2, x:x + width, y:y + width] = 1
-
-    return img
-

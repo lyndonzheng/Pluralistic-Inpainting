@@ -79,10 +79,13 @@ class Pluralistic(BaseModel):
 
     def test(self):
         """Forward function used in test time"""
+        # save the groundtruth and masked image
+        self.save_results(self.img_truth, data_name='truth')
+        self.save_results(self.img_m, data_name='mask')
+
         # encoder process
         distribution, f = self.net_E(self.img_m)
         q_distribution = torch.distributions.Normal(distribution[-1][0], distribution[-1][1])
-        self.save_results(self.img_truth,data_name='truth')
 
         # decoder process
         for i in range(self.opt.nsampling):

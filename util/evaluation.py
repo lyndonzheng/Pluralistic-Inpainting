@@ -17,6 +17,7 @@ parser.add_argument('--num_test', type=int, default=1000,
 # parser.add_argument('--sample_numbers',type=int,default=50, help='how many smaple images for testing')
 args = parser.parse_args()
 
+
 def compute_errors(gt, pre):
 
     # l1 loss
@@ -60,7 +61,7 @@ if __name__ == "__main__":
     PSNR = np.zeros(iters, np.float32)
     TV = np.zeros(iters, np.float32)
 
-    for i in range(17,iters):
+    for i in range(0, iters):
         l1_iter = np.zeros(args.num_test, np.float32)
         PSNR_iter = np.zeros(args.num_test, np.float32)
         TV_iter = np.zeros(args.num_test, np.float32)
@@ -69,26 +70,22 @@ if __name__ == "__main__":
 
         for j in range(args.num_test):
             index = num+j
-            #print(gt_paths[index])
             gt_image = Image.open(gt_paths[index]).resize([256,256]).convert('RGB')
             gt_numpy = np.array(gt_image).astype(np.float32)
             l1_sample = 1000
             PSNR_sample = 0
             TV_sample = 1000
-            #num2 = index * (args.sample_numbers+1)
-            #best_index = num2
             name = gt_paths[index].split('/')[-1].split(".")[0]+"*"
             pre_paths = sorted(glob.glob(os.path.join(args.save_path, name)))
             num_image_files = len(pre_paths)
 
             for k in range(num_image_files-1):
                 index2 = k
-                #print(k, pre_paths[index2])
                 try:
                     pre_image = Image.open(pre_paths[index2]).resize([256,256]).convert('RGB')
                     pre_numpy = np.array(pre_image).astype(np.float32)
                     l1_temp, PSNR_temp, TV_temp = compute_errors(gt_numpy, pre_numpy)
-                    # if l1_temp < l1_sample and PSNR_temp > PSNR_sample and TV_temp<TV_sample:
+                    # select the best results for the errors estimation
                     if l1_temp - PSNR_temp + TV_temp < l1_sample - PSNR_sample + TV_sample:
                         l1_sample, PSNR_sample, TV_sample = l1_temp, PSNR_temp, TV_temp
                         best_index = index2

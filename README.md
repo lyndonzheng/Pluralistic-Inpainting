@@ -55,22 +55,22 @@ cd Synthetic2Realistic
 - ```object``` original training images from [ImageNet](http://www.image-net.org/).
 
 ## Training
-- Train a model with datasets:
+- Train a model (**default**: random irregular and irregular holes):
 
 ```
-python train.py --name celeba_random --img_file ./dataset/image_painting/celeba_train.txt --flip --augment --shuffle
+python train.py --name celeba_random --img_file your_image_path
 ```
-
+- Set ```--mask_type``` in options/base_options.py for different training masks. ```--mask_file``` path is needed for **external irregular mask**, such as the irregular mask dataset provided by [Liu et al.](http://masc.cs.gmu.edu/wiki/partialconv) and [Karim lskakov ](https://github.com/karfly/qd-imd).
 - To view training results and loss plots, run python -m visdom.server and copy the URL [http://localhost:8095](http://localhost:8095).
-- Training results will be saved under the *checkpoints* folder. The more training options can be found in *options*.
+- Training models will be saved under the *checkpoints* folder.
+- The more training options can be found in *options*.
 
 ## Testing
 
 - Test the model
 
 ```
-python test.py  --name celeba_random --img_file ./dataset/image_painting/celeba_test.txt
---results_dir ./dataset/image_painting/results/ours/celeba/
+python test.py  --name celeba_random --img_file your_image_path
 ```
 - If test random mask, you need to provide the mask file_path
 
