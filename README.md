@@ -3,9 +3,9 @@
 [ArXiv]() | [Project Page]() | [Online Demo]() | [Video(paper)]() | [Video(demo)]()
 <br>
 
-This repository implements the training and testing for "Pluralistic Image Completion" by [Chuanxia Zheng](http://www.chuanxiaz.com), [Tat-Jen Cham](http://www.ntu.edu.sg/home/astjcham/) and [Jianfei Cai](http://www.ntu.edu.sg/home/asjfcai/) at NTU. Given one masked image, our **Pluralistic** model is able to generate *multiple* and *diverse* plausible results with various structure, color and texture.
+This repository implements the training, testing and editing tools for "Pluralistic Image Completion" by [Chuanxia Zheng](http://www.chuanxiaz.com), [Tat-Jen Cham](http://www.ntu.edu.sg/home/astjcham/) and [Jianfei Cai](http://www.ntu.edu.sg/home/asjfcai/) at NTU. Given one masked image, the proposed **Pluralistic** model is able to generate *multiple* and *diverse* plausible results with various structure, color and texture.
 
-## Editing tools
+## Editing example
 
 <img src='images/free_form.gif' align="center">
 
@@ -49,7 +49,10 @@ cd Synthetic2Realistic
 ```
 
 ## Datasets
-The face dataset comes from [CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) and use the algorithm of [Growing GANs](https://github.com/tkarras/progressive_growing_of_gans) to get the high-resolution CelebA-HQ dataset. The building dataset comes from [Paris](https://github.com/pathak22/context-encoder), natural scenery comes from [Places2](http://places2.csail.mit.edu/) and object comes from [ImageNet](http://www.image-net.org/).
+- ```face dataset```: 24183 training images and  2796 test images from [CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html) and use the algorithm of [Growing GANs](https://github.com/tkarras/progressive_growing_of_gans) to get the high-resolution CelebA-HQ dataset
+- ```building dataset```: 14900 training images and 100 test images from [Paris](https://github.com/pathak22/context-encoder)
+- ```natural scenery```: original training and val images from [Places2](http://places2.csail.mit.edu/)
+- ```object``` original training images from [ImageNet](http://www.image-net.org/).
 
 ## Training
 - Train a model with datasets:
