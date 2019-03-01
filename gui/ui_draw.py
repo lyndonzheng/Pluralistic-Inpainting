@@ -154,7 +154,7 @@ class painter(QtWidgets.QWidget):
         if self.shape == 'rectangle':
             self.drawRectangle(painter)
         painter.end()
-        self.map.save('./test.png')
+        #self.map.save('./test.png')
 
     # draw free form mask
     def drawLines(self, painter):

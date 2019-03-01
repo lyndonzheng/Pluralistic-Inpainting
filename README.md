@@ -72,7 +72,8 @@ python train.py --name celeba_random --img_file your_image_path
 ```
 python test.py  --name celeba_random --img_file your_image_path
 ```
-- If test random mask, you need to provide the mask file_path
+- Set ```--mask_type``` in options/base_options.py to test various masks. ```--mask_file``` path is needed for **3. external irregular mask**,
+- The default results will be saved under the *results* folder. Set ```--results_dir``` for a new path to save the result.
 
 ## pretrained Models
 

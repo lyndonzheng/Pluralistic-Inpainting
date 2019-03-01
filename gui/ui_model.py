@@ -25,8 +25,8 @@ class ui_model(QtWidgets.QWidget, Ui_Form):
         self.visualizer = Visualizer(opt)
         self.model_name = ['celeba_center', 'paris_center', 'imagenet_center', 'place2_center',
                            'celeba_random', 'paris_random','imagenet_random', 'place2_random']
-        self.img_root = '/media/lyndonzheng/c6f4bbbd-8d47-4dcb-b0db-d788fe2b2557/dataset/image_painting/'
-        self.img_files = ['celeba_HQ_test.txt', 'paris_test.txt', 'imagenet_val.txt', 'place2_val.txt']
+        self.img_root = './datasets/'
+        self.img_files = ['celeba-hq', 'paris', 'imagenet', 'place2']
         self.graphicsView_2.setMaximumSize(self.opt.loadSize[0]+30, self.opt.loadSize[1]+30)
 
         # show logo
@@ -128,9 +128,10 @@ class ui_model(QtWidgets.QWidget, Ui_Form):
         """Random load the test image"""
 
         # read random mask
-        mask_paths, mask_size = make_dataset(self.opt.mask_file)
-        item = random.randint(0, mask_size - 1)
-        self.mname = mask_paths[item]
+        if self.opt.mask_file != "none":
+            mask_paths, mask_size = make_dataset(self.opt.mask_file)
+            item = random.randint(0, mask_size - 1)
+            self.mname = mask_paths[item]
 
         image_paths, image_size = make_dataset(self.opt.img_file)
         item = random.randint(0, image_size-1)
