@@ -12,19 +12,19 @@ This repository implements the training and testing for "Pluralistic Image Compl
 ## Example results
 
 <table>
-<td>
-<tr><img src='images/mask_celeba_185755.jpg'></tr>
-<tr><img src='images/celeba185755.gif'></tr>
-<tr><img src='images/mask_celeba_184919.jpg'></tr>
-<tr><img src='images/celeba184919.gif'></tr>
-</td>
+<tr>
+<td><img src='images/mask_celeba_185755.jpg'></td>
+<td><img src='images/celeba185755.gif'></td>
+<td><img src='images/mask_celeba_184919.jpg'></td>
+<td><img src='images/celeba184919.gif'></td>
+</tr>
 
-<td>
-<tr><img src='images/mask_paris_085.png'></tr>
-<tr><img src='images/paris85.gif'></tr>
-<tr><img src='images/mask_Places_00030002.jpg'></tr>
-<tr><img src='images/place30002.gif'></tr>
-</td>
+<tr>
+<td><img src='images/mask_paris_085.png'></td>
+<td><img src='images/paris85.gif'></td>
+<td><img src='images/mask_Places_00030002.jpg'></td>
+<td><img src='images/place30002.gif'></td>
+</tr>
 
 </table>
 Example completion results of our method on images of a face, natural scenes, a building and a dog with various masks (masks shown in gray). For each group, the masked input image is shown left, followed by sampled results from our model without any post-processing. The results are diverse and plusible. The details can be viewed by zooming in.
