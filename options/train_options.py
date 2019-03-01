@@ -7,7 +7,7 @@ class TrainOptions(BaseOptions):
 
         # training epoch
         parser.add_argument('--iter_count', type=int, default=1, help='the starting epoch count')
-        parser.add_argument('--niter', type=int, default=1000000, help='# of iter with initial learning rate')
+        parser.add_argument('--niter', type=int, default=5000000, help='# of iter with initial learning rate')
         parser.add_argument('--niter_decay', type=int, default=0, help='# of iter to decay learning rate to zero')
         parser.add_argument('--continue_train', action='store_true', help='continue training: load the latest model')
 

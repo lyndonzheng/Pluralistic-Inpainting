@@ -14,7 +14,7 @@ class BaseOptions():
         # base define
         parser.add_argument('--name', type=str, default='experiment_name', help='name of the experiment.')
         parser.add_argument('--model', type=str, default='pluralistic', help='name of the model type. [pluralistic]')
-        parser.add_argument('--mask_type', type=int, default=[0],
+        parser.add_argument('--mask_type', type=int, default=[1, 2],
                             help='mask type, 0: center mask, 1:random regular mask, '
                             '2: random irregular mask. 3: external irregular mask. [0],[1,2],[1,2,3]')
         parser.add_argument('--checkpoints_dir', type=str, default='./checkpoints', help='models are save here')

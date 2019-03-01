@@ -29,6 +29,8 @@ This repository implements the training and testing for "Pluralistic Image Compl
 </table>
 Example completion results of our method on images of a face, natural scenes, a building and a dog with various masks (masks shown in gray). For each group, the masked input image is shown left, followed by sampled results from our model without any post-processing. The results are diverse and plusible. The details can be viewed by zooming in.
 
+## [More results on project page]()
+
 # Getting Started
 ## Installation
 This code was tested with Pytoch 0.4.0, CUDA 8.0, Python 3.6 and Ubuntu 16.04
@@ -56,7 +58,7 @@ The face dataset comes from [CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA
 python train.py --name celeba_random --img_file ./dataset/image_painting/celeba_train.txt --flip --augment --shuffle
 ```
 
-- To view training results and loss plots, run python -m visdom.server and copy the URL [http://localhost:8097](http://localhost:8097).
+- To view training results and loss plots, run python -m visdom.server and copy the URL [http://localhost:8095](http://localhost:8095).
 - Training results will be saved under the *checkpoints* folder. The more training options can be found in *options*.
 
 ## Testing
@@ -65,7 +67,7 @@ python train.py --name celeba_random --img_file ./dataset/image_painting/celeba_
 
 ```
 python test.py  --name celeba_random --img_file ./dataset/image_painting/celeba_test.txt
---results_dir ./dataset/image_painting/results/ours/celeba/ --mask center_mask
+--results_dir ./dataset/image_painting/results/ours/celeba/
 ```
 - If test random mask, you need to provide the mask file_path
 
