@@ -27,7 +27,7 @@ This repository implements the training, testing and editing tools for "Pluralis
 </tr>
 
 </table>
-Example completion results of our method on images of a face, natural scenes, a building and a dog with various masks (masks shown in gray). For each group, the masked input image is shown left, followed by sampled results from our model without any post-processing. The results are diverse and plusible. The details can be viewed by zooming in.
+Example completion results of our method on images of face ([CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html)), building ([Paris](https://github.com/pathak22/context-encoder)), and natural scenes ([Places2](http://places2.csail.mit.edu/)) with center masks (masks shown in gray). For each group, the masked input image is shown left, followed by sampled results from our model without any post-processing. The results are diverse and plusible.
 
 ## [More results on project page]()
 
@@ -76,11 +76,40 @@ python test.py  --name celeba_random --img_file your_image_path
 - The default results will be saved under the *results* folder. Set ```--results_dir``` for a new path to save the result.
 
 ## Pretrained Models
-[CelebA]()|
+Download the pre-trained models using the following links and put them under```checkpoints/``` directory.
 
-Download the model dirs and put it under ```checkpoints/```. Run testing or continue_train as described above. All models are trained with images of resolution 256x256 and with center holes 128x128 and random holes of arbitrary sizes.
+- ```center_mask model```: [CelebA_center](https://drive.google.com/open?id=1zQnFkRAtjGCorOd0Mj9tfdApcAPbs6Kw) | [Paris_center](https://drive.google.com/open?id=1s4zmYhJAdkRErivj3OuTPeQ5ECQtq35e) | [Places2_center](https://drive.google.com/open?id=1y8wE8wcIq8EMRzjgOE3Y_Bv4iPLW4RV3) | [Imagenet_center](https://drive.google.com/open?id=1iH60vWygjk2Gc9iyVAva45vz3meSeZPg)
+- ```random_mask model```: [CelebA_random](https://drive.google.com/open?id=1nLq-W7eAZErqsvB1Q8h1yQT_l7_kZBXT) | [Paris_random](https://drive.google.com/open?id=1D67Y1AtsMy_opysxtt06D7vZrDUKvDAm) | [Places2_random](https://drive.google.com/open?id=1L4NAHQqyEJ_ANt4SfEP1hdEVdGrteu4L) | [Imagenet_random](https://drive.google.com/open?id=1hS6D4gjOkvEOlAEOAKxCCzjhpCoddU2S)
+
+Our main novelty of this project is the *multiple* and *diverse* plausible results for one given masked image. The **center_mask models** are trained with images of resolution 256*256 with center holes 128x128, which have large diversity for the large missing information. The **random_mask models** are trained with random regular and irregular holes, which have different diversity for different mask sizes and image backgrounds.
 
 ## GUI
+Download the pre-trained models from [Google drive](https://drive.google.com/open?id=1lPSKKVy99ECpwzpN3EExdeBxhexwjJEh) and put them under```checkpoints/``` directory.
+
+Basic usage is:
+```
+python ui_main.py
+```
+
+The buttons in GUI:
+- ```Options```: Select the model and corresponding dataset for editing.
+- ```Bush Width```: Modify the width of bush for free_form mask.
+- ```draw/clear```: Draw a ```free_form``` or ```rectangle``` mask for random_model. Clear all mask region for a new input.
+- ```load```: Choose the image from the directory.
+- ```random```: Random load the editing image from the datasets.
+- ```fill```: Fill the holes ranges and show it on the right. Click
+- ```save```: Save the inputs and outputs to the directory.
+- ```Original/Output```: Switch to show the original or output image.
+
+The steps are as follows:
+```
+1. Select a model from 'options'
+2. Click the 'random' or 'load' button to get an input image.
+3. If you choose a random model, click the 'draw/clear' button to input free_form mask.
+4. If you choose a center model, the center mask has been given.
+5. click 'fill' button to get multiple results.
+6. click 'save' button to save the results.
+```
 
 ## License
 
