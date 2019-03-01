@@ -95,14 +95,14 @@ class ui_model(QtWidgets.QWidget, Ui_Form):
         img = QtWidgets.QLabel(self)
         img.setGeometry(650, 20, 140, 50)
         # read images
-        pixmap = QtGui.QPixmap("./logo/NTU_logo.jpg")
+        pixmap = QtGui.QPixmap("./gui/logo/NTU_logo.jpg")
         pixmap = pixmap.scaled(140, 140, QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation)
         img.setPixmap(pixmap)
         img.show()
         img1 = QtWidgets.QLabel(self)
         img1.setGeometry(800, 20, 70, 50)
         # read images
-        pixmap1 = QtGui.QPixmap("./logo/BTC_logo.png")
+        pixmap1 = QtGui.QPixmap("./gui/logo/BTC_logo.png")
         pixmap1 = pixmap1.scaled(70, 70, QtCore.Qt.KeepAspectRatio, QtCore.Qt.SmoothTransformation)
         img1.setPixmap(pixmap1)
         img1.show()

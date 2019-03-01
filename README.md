@@ -31,7 +31,7 @@ Example completion results of our method on images of a face, natural scenes, a 
 
 ## [More results on project page]()
 
-# Getting Started
+# Getting started
 ## Installation
 This code was tested with Pytoch 0.4.0, CUDA 8.0, Python 3.6 and Ubuntu 16.04
 
@@ -62,8 +62,8 @@ python train.py --name celeba_random --img_file your_image_path
 ```
 - Set ```--mask_type``` in options/base_options.py for different training masks. ```--mask_file``` path is needed for **external irregular mask**, such as the irregular mask dataset provided by [Liu et al.](http://masc.cs.gmu.edu/wiki/partialconv) and [Karim lskakov ](https://github.com/karfly/qd-imd).
 - To view training results and loss plots, run python -m visdom.server and copy the URL [http://localhost:8095](http://localhost:8095).
-- Training models will be saved under the *checkpoints* folder.
-- The more training options can be found in *options*.
+- Training models will be saved under the **checkpoints** folder.
+- The more training options can be found in **options** folder.
 
 ## Testing
 
@@ -75,9 +75,12 @@ python test.py  --name celeba_random --img_file your_image_path
 - Set ```--mask_type``` in options/base_options.py to test various masks. ```--mask_file``` path is needed for **3. external irregular mask**,
 - The default results will be saved under the *results* folder. Set ```--results_dir``` for a new path to save the result.
 
-## pretrained Models
+## Pretrained Models
+[CelebA]()|
 
 Download the model dirs and put it under ```checkpoints/```. Run testing or continue_train as described above. All models are trained with images of resolution 256x256 and with center holes 128x128 and random holes of arbitrary sizes.
+
+## GUI
 
 ## License
 
