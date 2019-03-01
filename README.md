@@ -1,13 +1,32 @@
-<img src='images/our.gif' align="right" width=128>
-
-<br>
 
 # Pluralistic Image Completion
+[ArXiv]() | [Project Page]() | [Online Demo]() | [Video(paper)]() | [Video(demo)]()
+<br>
 
-This repository implements the training and testing for "Pluralistic Image Completion" by Chuanxia Zheng, [Tat-Jen Cham](http://www.ntu.edu.sg/home/astjcham/) and [Jianfei Cai](http://www.ntu.edu.sg/home/asjfcai/) at NTU. The repository offers the original implementation of the paper in pytorch.
-- Example
+This repository implements the training and testing for "Pluralistic Image Completion" by [Chuanxia Zheng](http://www.chuanxiaz.com), [Tat-Jen Cham](http://www.ntu.edu.sg/home/astjcham/) and [Jianfei Cai](http://www.ntu.edu.sg/home/asjfcai/) at NTU. Given one masked image, our **Pluralistic** model is able to generate *multiple* and *diverse* plausible results with various structure, color and texture.
 
-<img src='images/example.png' align="center">
+## Editing tools
+
+<img src='images/free_form.gif' align="center">
+
+## Example results
+
+<table>
+<td>
+<tr><img src='images/mask_celeba_185755.jpg'></tr>
+<tr><img src='images/celeba185755.gif'></tr>
+<tr><img src='images/mask_celeba_184919.jpg'></tr>
+<tr><img src='images/celeba184919.gif'></tr>
+</td>
+
+<td>
+<tr><img src='images/mask_paris_085.png'></tr>
+<tr><img src='images/paris85.gif'></tr>
+<tr><img src='images/mask_Places_00030002.jpg'></tr>
+<tr><img src='images/place30002.gif'></tr>
+</td>
+
+</table>
 Example completion results of our method on images of a face, natural scenes, a building and a dog with various masks (masks shown in gray). For each group, the masked input image is shown left, followed by sampled results from our model without any post-processing. The results are diverse and plusible. The details can be viewed by zooming in.
 
 # Getting Started
