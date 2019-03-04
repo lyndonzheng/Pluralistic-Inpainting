@@ -114,11 +114,11 @@ class Pluralistic(BaseModel):
             q_distribution = torch.distributions.Normal(q_mu, q_sigma)
 
             # kl divergence
-            kl_rec += torch.distributions.kl_divergence(m_distribution, p_distribution) + torch.distributions.kl_divergence(p_distribution, m_distribution)
+            kl_rec += torch.distributions.kl_divergence(m_distribution, p_distribution)
             if self.opt.train_paths == "one":
                 kl_g += torch.distributions.kl_divergence(m_distribution, q_distribution)
             elif self.opt.train_paths == "two":
-                kl_g += torch.distributions.kl_divergence(p_distribution_fix, q_distribution) + torch.distributions.kl_divergence(q_distribution, p_distribution_fix)
+                kl_g += torch.distributions.kl_divergence(p_distribution_fix, q_distribution)
             self.distribution.append([torch.zeros_like(p_mu), m_sigma * torch.ones_like(p_sigma), p_mu, p_sigma, q_mu, q_sigma])
 
         return p_distribution, q_distribution, kl_rec, kl_g

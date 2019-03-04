@@ -97,7 +97,7 @@ def get_transform(opt):
         if not opt.no_flip:
             transform_list.append(transforms.RandomHorizontalFlip())
         if not opt.no_rotation:
-            transform_list.append(transforms.RandomRotation(5))
+            transform_list.append(transforms.RandomRotation(3))
     else:
         transform_list.append(transforms.Resize(fsize))
 
