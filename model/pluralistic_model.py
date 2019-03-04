@@ -51,7 +51,7 @@ class Pluralistic(BaseModel):
                         filter(lambda p: p.requires_grad, self.net_E.parameters())), lr=opt.lr, betas=(0.0, 0.999))
             self.optimizer_D = torch.optim.Adam(itertools.chain(filter(lambda p: p.requires_grad, self.net_D.parameters()),
                                                 filter(lambda p: p.requires_grad, self.net_D_rec.parameters())),
-                                                lr=opt.lr * 2, betas=(0.0, 0.999))
+                                                lr=opt.lr, betas=(0.0, 0.999))
             self.optimizers.append(self.optimizer_G)
             self.optimizers.append(self.optimizer_D)
         # load the pretrained model and schedulers
