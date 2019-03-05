@@ -140,8 +140,15 @@ class ui_model(QtWidgets.QWidget, Ui_Form):
 
     def save_result(self):
         """Save the results to the disk"""
+        util.mkdir(self.opt.results_dir)
         img_name = self.fname.split('/')[-1]
         data_name = self.opt.img_file.split('/')[-1].split('.')[0]
+
+        # save the original image
+        original_name = '%s_%s_%s' % ('original', data_name, img_name)
+        original_path = os.path.join(self.opt.results_dir, original_name)
+        img_original = util.tensor2im(self.img_truth)
+        util.save_image(img_original, original_path)
 
         # save the mask
         mask_name = '%s_%s_%d_%s' % ('mask', data_name, self.PaintPanel.iteration, img_name)
@@ -207,11 +214,11 @@ class ui_model(QtWidgets.QWidget, Ui_Form):
 
         # get I_m and I_c for image with mask and complement regions for training
         mask = mask
-        img_truth = img * 2 - 1
-        self.img_m = mask * img_truth
-        img_c = (1 - mask) * img_truth
+        self.img_truth = img * 2 - 1
+        self.img_m = mask * self.img_truth
+        self.img_c = (1 - mask) * self.img_truth
 
-        return self.img_m, img_c, img_truth, mask
+        return self.img_m, self.img_c, self.img_truth, mask
 
     def fill_mask(self):
         """Forward to get the generation results"""

@@ -108,7 +108,7 @@ class ResEncoder(nn.Module):
 
     def one_path(self, f_in):
         """one path for baseline training or testing"""
-        f_m = f_in.detach()
+        f_m = f_in
         distribution = []
 
         # infer state
