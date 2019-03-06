@@ -1,7 +1,7 @@
 import time
 from options.train_options import TrainOptions
 from dataloader.data_loader import dataloader
-from model.pluralistic_model import Pluralistic
+from model import create_model
 from util.visualizer import Visualizer
 
 
@@ -13,7 +13,7 @@ if __name__ == '__main__':
     dataset_size = len(dataset) * opt.batchSize
     print('training images = %d' % dataset_size)
     # create a model
-    model = Pluralistic(opt)
+    model = create_model(opt)
     # create a visualizer
     visualizer = Visualizer(opt)
     # training flag
