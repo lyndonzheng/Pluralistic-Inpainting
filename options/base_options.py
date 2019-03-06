@@ -32,7 +32,7 @@ class BaseOptions():
         parser.add_argument('--no_augment', action='store_true', help='if specified, do not augment the image for data augmentation')
         parser.add_argument('--batchSize', type=int, default=8, help='input batch size')
         parser.add_argument('--nThreads', type=int, default=8, help='# threads for loading data')
-        parser.add_argument('--shuffle', action='store_true',help='if true, takes images randomly')
+        parser.add_argument('--no_shuffle', action='store_true',help='if true, takes images serial')
 
         # display parameter define
         parser.add_argument('--display_winsize', type=int, default=256, help='display window size')
