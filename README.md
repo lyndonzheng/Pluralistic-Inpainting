@@ -1,6 +1,6 @@
 
 # Pluralistic Image Completion
-[ArXiv]() | [Project Page]() | [Online Demo]() | [Video(paper)]() | [Video(demo)]()
+[ArXiv]() | [Project Page](http://www.chuanxiaz.com/publication/pluralistic/) | [Online Demo](http://www.chuanxiaz.com/project/pluralistic/) | [Video(paper)]() | [Video(demo)](https://www.youtube.com/watch?v=9V7rNoLVmSs)
 <br>
 
 This repository implements the training, testing and editing tools for "Pluralistic Image Completion" by [Chuanxia Zheng](http://www.chuanxiaz.com), [Tat-Jen Cham](http://www.ntu.edu.sg/home/astjcham/) and [Jianfei Cai](http://www.ntu.edu.sg/home/asjfcai/) at NTU. Given one masked image, the proposed **Pluralistic** model is able to generate *multiple* and *diverse* plausible results with various structure, color and texture.
@@ -27,6 +27,7 @@ This repository implements the training, testing and editing tools for "Pluralis
 </tr>
 
 </table>
+
 Example completion results of our method on images of face ([CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html)), building ([Paris](https://github.com/pathak22/context-encoder)), and natural scenes ([Places2](http://places2.csail.mit.edu/)) with center masks (masks shown in gray). For each group, the masked input image is shown left, followed by sampled results from our model without any post-processing. The results are diverse and plusible.
 
 ## [More results on project page]()
@@ -110,6 +111,71 @@ The steps are as follows:
 5. click 'fill' button to get multiple results.
 6. click 'save' button to save the results.
 ```
+
+## Editing Example Results
+- **Results (original, input, output) for object removing**
+
+<table>
+<tr>
+<td><img src='images/removing/original_celeba189756.jpg'></td>
+<td><img src='images/removing/mask_celeba189756.jpg'></td>
+<td><img src='images/removing/result_celeba189756.jpg'></td>
+</tr>
+
+<tr>
+<td><img src='images/removing/original_celeba199782.jpg'></td>
+<td><img src='images/removing/mask_celeba199782.jpg'></td>
+<td><img src='images/removing/result_celeba199782.jpg'></td>
+</tr>
+
+
+<tr>
+<td><img src='images/removing/original_paris085.png'></td>
+<td><img src='images/removing/mask_paris085.png'></td>
+<td><img src='images/removing/result_paris085.png'></td>
+</tr>
+
+<tr>
+<td><img src='images/removing/original_place00000321.jpg'></td>
+<td><img src='images/removing/mask_place00000321.jpg'></td>
+<td><img src='images/removing/result_place00000321.jpg'></td>
+</tr>
+
+<tr>
+<td><img src='images/removing/original_place00013547.jpg'></td>
+<td><img src='images/removing/mask_place00013547.jpg'></td>
+<td><img src='images/removing/result_place00013547.jpg'></td>
+</tr>
+
+
+</table>
+
+- **Results (original, input, output) for face playing.** When mask half or right face, the diversity will be small for the short+long term attention layer will copy information from other side. When mask top or down face, the diversity will be large.
+
+<table>
+<tr>
+<td><img src='images/face_playing/mask_celeba184054.jpg'></td>
+<td><img src='images/face_playing/result_celeba184054.gif'></td>
+<td><img src='images/face_playing/mask_celeba182927.jpg'></td>
+<td><img src='images/face_playing/result_celeba182927.gif'></td>
+</tr>
+
+<tr>
+<td><img src='images/face_playing/mask_celeba192793.jpg'></td>
+<td><img src='images/face_playing/result_celeba192793.gif'></td>
+<td><img src='images/face_playing/mask_celeba197462.jpg'></td>
+<td><img src='images/face_playing/result_celeba197462.gif'></td>
+</tr>
+
+<tr>
+<td><img src='images/face_playing/mask_celeba198496.jpg'></td>
+<td><img src='images/face_playing/result_celeba198496.jpg'></td>
+<td><img src='images/face_playing/mask_celeba190952.jpg'></td>
+<td><img src='images/face_playing/result_celeba190952.jpg'></td>
+</tr>
+
+
+</table>
 
 ## License
 
