@@ -118,39 +118,30 @@ The steps are as follows:
 <table>
 <tr>
 <td><img src='images/removing/original_celeba189756.jpg'></td>
-<td><img src='images/removing/mask_celeba189756.jpg'></td>
-<td><img src='images/removing/result_celeba189756.jpg'></td>
-</tr>
-
-<tr>
 <td><img src='images/removing/original_celeba199782.jpg'></td>
-<td><img src='images/removing/mask_celeba199782.jpg'></td>
-<td><img src='images/removing/result_celeba199782.jpg'></td>
-</tr>
-
-
-<tr>
 <td><img src='images/removing/original_paris085.png'></td>
-<td><img src='images/removing/mask_paris085.png'></td>
-<td><img src='images/removing/result_paris085.png'></td>
-</tr>
-
-<tr>
-<td><img src='images/removing/original_place00000321.jpg'></td>
-<td><img src='images/removing/mask_place00000321.jpg'></td>
-<td><img src='images/removing/result_place00000321.jpg'></td>
-</tr>
-
-<tr>
 <td><img src='images/removing/original_place00013547.jpg'></td>
+</tr>
+
+<tr>
+<td><img src='images/removing/mask_celeba189756.jpg'></td>
+<td><img src='images/removing/mask_celeba199782.jpg'></td>
+<td><img src='images/removing/mask_paris085.png'></td>
 <td><img src='images/removing/mask_place00013547.jpg'></td>
+
+</tr>
+
+
+<tr>
+<td><img src='images/removing/result_celeba189756.jpg'></td>
+<td><img src='images/removing/result_celeba199782.jpg'></td>
+<td><img src='images/removing/result_paris085.png'></td>
 <td><img src='images/removing/result_place00013547.jpg'></td>
 </tr>
 
-
 </table>
 
-- **Results (original, input, output) for face playing.** When mask half or right face, the diversity will be small for the short+long term attention layer will copy information from other side. When mask top or down face, the diversity will be large.
+- **Results (input, output) for face playing.** When mask half or right face, the diversity will be small for the short+long term attention layer will copy information from other side. When mask top or down face, the diversity will be large.
 
 <table>
 <tr>
