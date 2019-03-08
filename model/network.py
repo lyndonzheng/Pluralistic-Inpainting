@@ -185,7 +185,7 @@ class ResGenerator(nn.Module):
             if i > layers - output_scale - 1:
                 outconv = Output(ngf * mult, output_nc, 3, None, nonlinearity, use_spect, use_coord)
                 setattr(self, 'out' + str(i), outconv)
-            # self-attention
+            # short+long term attention part
             if i == 1 and use_attn:
                 attn = Auto_Attn(ngf*mult, None)
                 setattr(self, 'attn' + str(i), attn)
