@@ -182,5 +182,5 @@ If you use this code for your research, please cite our papers.
   author={Zheng, Chuanxia and Cham, Tat-Jen and Cai, Jianfei},
   journal={arXiv preprint arXiv:1903.04227},
   year={2019}
-} an
+}
 ```
