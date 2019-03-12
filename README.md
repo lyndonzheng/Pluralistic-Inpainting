@@ -169,7 +169,7 @@ The steps are as follows:
 </table>
 
 ## License
-CC 4.0 Attribution-NonCommercial International
+<br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
 This software is for educational and academic research purpose only.
 
@@ -182,5 +182,5 @@ If you use this code for your research, please cite our papers.
   author={Zheng, Chuanxia and Cham, Tat-Jen and Cai, Jianfei},
   journal={arXiv preprint arXiv:1903.04227},
   year={2019}
-}
+} an
 ```
