@@ -91,6 +91,11 @@ def random_irregular_mask(img):
 ###################################################################
 
 
+def scale_img(img, size):
+    scaled_img = F.interpolate(img, size=size, mode='bilinear', align_corners=True)
+    return scaled_img
+
+
 def scale_pyramid(img, num_scales):
     scaled_imgs = [img]
 
@@ -103,7 +108,7 @@ def scale_pyramid(img, num_scales):
         ratio = 2**i
         nh = h // ratio
         nw = w // ratio
-        scaled_img = F.interpolate(img, size=(nh, nw), mode='bilinear', align_corners=True)
+        scaled_img = scale_img(img, size=[nh, nw])
         scaled_imgs.append(scaled_img)
 
     scaled_imgs.reverse()

@@ -86,11 +86,12 @@ class Pluralistic(BaseModel):
         # encoder process
         distribution, f = self.net_E(self.img_m)
         q_distribution = torch.distributions.Normal(distribution[-1][0], distribution[-1][1])
+        scale_mask = task.scale_img(self.mask, size=[f[2].size(2), f[2].size(3)])
 
         # decoder process
         for i in range(self.opt.nsampling):
             z = q_distribution.sample()
-            self.img_g, attn = self.net_G(z, f_m=f[-1], f_e=f[2], mask=self.scale_mask[0].chunk(3, dim=1)[0])
+            self.img_g, attn = self.net_G(z, f_m=f[-1], f_e=f[2], mask=scale_mask.chunk(3, dim=1)[0])
             self.img_out = (1 - self.mask) * self.img_g[-1].detach() + self.mask * self.img_m
             self.score = self.net_D(self.img_out)
             self.save_results(self.img_out, i, data_name='out')
@@ -127,7 +128,8 @@ class Pluralistic(BaseModel):
         """Process the encoder feature and distributions for generation network"""
         f_m = torch.cat([f[-1].chunk(2)[0], f[-1].chunk(2)[0]], dim=0)
         f_e = torch.cat([f[2].chunk(2)[0], f[2].chunk(2)[0]], dim=0)
-        mask = torch.cat([self.scale_mask[0].chunk(3, dim=1)[0], self.scale_mask[0].chunk(3, dim=1)[0]], dim=0)
+        scale_mask = task.scale_img(self.mask, size=[f_e.size(2), f_e.size(3)])
+        mask = torch.cat([scale_mask.chunk(3, dim=1)[0], scale_mask.chunk(3, dim=1)[0]], dim=0)
         z_p = p_distribution.rsample()
         z_q = q_distribution.rsample()
         z = torch.cat([z_p, z_q], dim=0)

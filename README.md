@@ -1,6 +1,6 @@
 
 # Pluralistic Image Completion
-[ArXiv]() | [Project Page](http://www.chuanxiaz.com/publication/pluralistic/) | [Online Demo](http://www.chuanxiaz.com/project/pluralistic/) | [Video(paper)]() | [Video(demo)](https://www.youtube.com/watch?v=9V7rNoLVmSs)
+[ArXiv]() | [Project Page](http://www.chuanxiaz.com/publication/pluralistic/) | [Online Demo](http://www.chuanxiaz.com/project/pluralistic/) | [Video(demo)](https://www.youtube.com/watch?v=9V7rNoLVmSs)
 <br>
 
 This repository implements the training, testing and editing tools for "Pluralistic Image Completion" by [Chuanxia Zheng](http://www.chuanxiaz.com), [Tat-Jen Cham](http://www.ntu.edu.sg/home/astjcham/) and [Jianfei Cai](http://www.ntu.edu.sg/home/asjfcai/) at NTU. Given one masked image, the proposed **Pluralistic** model is able to generate *multiple* and *diverse* plausible results with various structure, color and texture.
