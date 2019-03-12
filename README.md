@@ -175,7 +175,7 @@ This software is for educational and academic research purpose only.
 
 ## Citation
 
-If you use this code for your research, please cite our papers.
+If you use this code for your research, please cite our paper.
 ```
 @article{Zheng2019Pluralistic,
   title={Pluralistic Image Completion},
