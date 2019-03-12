@@ -62,7 +62,7 @@ cd Synthetic2Realistic
 python train.py --name celeba_random --img_file your_image_path
 ```
 - Set ```--mask_type``` in options/base_options.py for different training masks. ```--mask_file``` path is needed for **external irregular mask**, such as the irregular mask dataset provided by [Liu et al.](http://masc.cs.gmu.edu/wiki/partialconv) and [Karim lskakov ](https://github.com/karfly/qd-imd).
-- To view training results and loss plots, run python -m visdom.server and copy the URL [http://localhost:8095](http://localhost:8095).
+- To view training results and loss plots, run ```python -m visdom.server``` and copy the URL [http://localhost:8095](http://localhost:8095).
 - Training models will be saved under the **checkpoints** folder.
 - The more training options can be found in **options** folder.
 
@@ -98,7 +98,7 @@ The buttons in GUI:
 - ```draw/clear```: Draw a ```free_form``` or ```rectangle``` mask for random_model. Clear all mask region for a new input.
 - ```load```: Choose the image from the directory.
 - ```random```: Random load the editing image from the datasets.
-- ```fill```: Fill the holes ranges and show it on the right. Click
+- ```fill```: Fill the holes ranges and show it on the right.
 - ```save```: Save the inputs and outputs to the directory.
 - ```Original/Output```: Switch to show the original or output image.
 
