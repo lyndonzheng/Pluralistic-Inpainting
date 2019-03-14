@@ -38,7 +38,7 @@ class Pluralistic(BaseModel):
         self.net_G = network.define_g(ngf=32, z_nc=128, img_f=128, L=0, layers=5, output_scale=opt.output_scale,
                                       norm='instance', activation='LeakyReLU', init_type='orthogonal', gpu_ids=opt.gpu_ids)
         # define the discriminator model
-        self.net_D = network.define_d(ndf=32, img_f=128, layers=5, init_type='orthogonal', gpu_ids=opt.gpu_ids)
+        self.net_D = network.define_d(ndf=32, img_f=128, layers=5, model_type='ResDis', init_type='orthogonal', gpu_ids=opt.gpu_ids)
         self.net_D_rec = network.define_d(ndf=32, img_f=128, layers=5, model_type='ResDis', init_type='orthogonal', gpu_ids=opt.gpu_ids)
 
         if self.isTrain:
