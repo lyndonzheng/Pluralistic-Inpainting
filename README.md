@@ -176,7 +176,7 @@ The steps are as follows:
 ## License
 <br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a>.
 
-This software is for educational and academic research purpose only.
+This software is for educational and academic research purpose only. If you wish to obtain a commercial royalty bearing license to this software, please contact us at chuanxia001@e.ntu.edu.sg.
 
 ## Citation
 
