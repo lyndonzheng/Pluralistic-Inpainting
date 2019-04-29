@@ -46,7 +46,7 @@ pip install visdom dominate
 
 ```
 git clone https://github.com/lyndonzheng/Pluralistic
-cd Synthetic2Realistic
+cd Pluralistic
 ```
 
 ## Datasets
