@@ -227,8 +227,8 @@ class ui_model(QtWidgets.QWidget, Ui_Form):
             with torch.no_grad():
                 # encoder process
                 distributions, f = self.model.net_E(img_m)
-                #q_distribution = torch.distributions.Normal(distributions[-1][0], distributions[-1][1])
-                q_distribution = torch.distributions.Normal( torch.zeros_like(distributions[-1][0]), torch.ones_like(distributions[-1][1]))
+                q_distribution = torch.distributions.Normal(distributions[-1][0], distributions[-1][1])
+                #q_distribution = torch.distributions.Normal( torch.zeros_like(distributions[-1][0]), torch.ones_like(distributions[-1][1]))
                 z = q_distribution.sample()
 
                 # decoder process
