@@ -37,7 +37,7 @@ class BaseOptions():
         # display parameter define
         parser.add_argument('--display_winsize', type=int, default=256, help='display window size')
         parser.add_argument('--display_id', type=int, default=1, help='display id of the web')
-        parser.add_argument('--display_port', type=int, default=8095, help='visidom port of the web display')
+        parser.add_argument('--display_port', type=int, default=8097, help='visidom port of the web display')
         parser.add_argument('--display_single_pane_ncols', type=int, default=0, help='if positive, display all images in a single visidom web panel')
 
         return parser

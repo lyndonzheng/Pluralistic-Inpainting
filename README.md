@@ -62,7 +62,7 @@ cd Pluralistic
 python train.py --name celeba_random --img_file your_image_path
 ```
 - Set ```--mask_type``` in options/base_options.py for different training masks. ```--mask_file``` path is needed for **external irregular mask**, such as the irregular mask dataset provided by [Liu et al.](http://masc.cs.gmu.edu/wiki/partialconv) and [Karim lskakov ](https://github.com/karfly/qd-imd).
-- To view training results and loss plots, run ```python -m visdom.server``` and copy the URL [http://localhost:8095](http://localhost:8095).
+- To view training results and loss plots, run ```python -m visdom.server``` and copy the URL [http://localhost:8097](http://localhost:8097).
 - Training models will be saved under the **checkpoints** folder.
 - The more training options can be found in **options** folder.
 
@@ -87,8 +87,15 @@ Our main novelty of this project is the *multiple* and *diverse* plausible resul
 ## GUI
 Download the pre-trained models from [Google drive](https://drive.google.com/open?id=1lPSKKVy99ECpwzpN3EExdeBxhexwjJEh) and put them under```checkpoints/``` directory.
 
+- Install the [PyQt5](https://pypi.org/project/PyQt5/) for GUI operation
+
+```
+pip install PyQt5
+```
+
 Basic usage is:
 ```
+python -m visdom.server
 python ui_main.py
 ```
 
@@ -182,10 +189,11 @@ This software is for educational and academic research purpose only. If you wish
 
 If you use this code for your research, please cite our paper.
 ```
-@article{Zheng2019Pluralistic,
+@inproceedings{zheng2019pluralistic,
   title={Pluralistic Image Completion},
   author={Zheng, Chuanxia and Cham, Tat-Jen and Cai, Jianfei},
-  journal={arXiv preprint arXiv:1903.04227},
+  booktitle={Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition},
+  pages={1438--1447},
   year={2019}
 }
 ```
