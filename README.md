@@ -196,4 +196,13 @@ If you use this code for your research, please cite our paper.
   pages={1438--1447},
   year={2019}
 }
+
+@article{zheng2021pluralistic,
+  title={Pluralistic Free-From Image Completion},
+  author={Zheng, Chuanxia and Cham, Tat-Jen and Cai, Jianfei},
+  journal={International Journal of Computer Vision},
+  pages={1--20},
+  year={2021},
+  publisher={Springer}
+}
 ```
