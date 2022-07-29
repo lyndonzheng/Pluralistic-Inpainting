@@ -1,6 +1,6 @@
 
 # Pluralistic Image Completion
-[ArXiv](https://arxiv.org/abs/1903.04227) | [Project Page](http://www.chuanxiaz.com/publication/pluralistic/) | [Online Demo](http://www.chuanxiaz.com/project/pluralistic/) | [Video(demo)](https://www.youtube.com/watch?v=9V7rNoLVmSs)
+[ArXiv](https://arxiv.org/abs/1903.04227) | [Project Page](https://chuanxiaz.com/pic/) | [Online Demo](http://www.chuanxiaz.com/project/pluralistic/) | [Video(demo)](https://www.youtube.com/watch?v=9V7rNoLVmSs)
 <br>
 
 This repository implements the training, testing and editing tools for "Pluralistic Image Completion" by [Chuanxia Zheng](http://www.chuanxiaz.com), [Tat-Jen Cham](http://www.ntu.edu.sg/home/astjcham/) and [Jianfei Cai](http://www.ntu.edu.sg/home/asjfcai/) at NTU. Given one masked image, the proposed **Pluralistic** model is able to generate *multiple* and *diverse* plausible results with various structure, color and texture.
@@ -30,11 +30,13 @@ This repository implements the training, testing and editing tools for "Pluralis
 
 Example completion results of our method on images of face ([CelebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html)), building ([Paris](https://github.com/pathak22/context-encoder)), and natural scenes ([Places2](http://places2.csail.mit.edu/)) with center masks (masks shown in gray). For each group, the masked input image is shown left, followed by sampled results from our model without any post-processing. The results are diverse and plusible.
 
-## [More results on project page](http://www.chuanxiaz.com/publication/pluralistic/)
+## [More results on project page](https://chuanxiaz.com/pic/)
 
 # Getting started
 ## Installation
 This code was tested with Pytoch 0.4.0, CUDA 9.0, Python 3.6 and Ubuntu 16.04
+
+*The GUI program was further verified compatible with PyTorch 1.7.0, CUDA 11.2, Python 3.6 and Ubuntu 20.04.*
 
 - Install Pytoch 0.4, torchvision, and other dependencies from [http://pytorch.org](http://pytorch.org)
 - Install python libraries [visdom](https://github.com/facebookresearch/visdom) and [dominate](https://github.com/Knio/dominate) for visualization
@@ -85,12 +87,21 @@ Download the pre-trained models using the following links and put them under```c
 Our main novelty of this project is the *multiple* and *diverse* plausible results for one given masked image. The **center_mask models** are trained with images of resolution 256*256 with center holes 128x128, which have large diversity for the large missing information. The **random_mask models** are trained with random regular and irregular holes, which have different diversity for different mask sizes and image backgrounds.
 
 ## GUI
-Download the pre-trained models from [Google drive](https://drive.google.com/open?id=1lPSKKVy99ECpwzpN3EExdeBxhexwjJEh) and put them under```checkpoints/``` directory.
+
+<img src='images/free_form_v2.gif' align="center">
+
+- Download the pre-trained models from [Google drive](https://drive.google.com/open?id=1lPSKKVy99ECpwzpN3EExdeBxhexwjJEh) and put them under```checkpoints/``` directory.
 
 - Install the [PyQt5](https://pypi.org/project/PyQt5/) for GUI operation
 
 ```
 pip install PyQt5
+```
+
+- Install the [face_alignment](https://github.com/1adrianb/face-alignment) for extracting human face from in-the-wild images.
+
+```bash
+pip install face_alignment==1.3.5  
 ```
 
 Basic usage is:
@@ -103,20 +114,25 @@ The buttons in GUI:
 - ```Options```: Select the model and corresponding dataset for editing.
 - ```Bush Width```: Modify the width of bush for free_form mask.
 - ```draw/clear```: Draw a ```free_form``` or ```rectangle``` mask for random_model. Clear all mask region for a new input.
-- ```load```: Choose the image from the directory.
 - ```random```: Random load the editing image from the datasets.
-- ```fill```: Fill the holes ranges and show it on the right.
+- ```load```: Choose the image from the directory.
+- `capture`: Capture an image using the camera.
+- `crop face`: Detect, crop and align human face from the given in-the-wild image.
+- ```Fill-->```: Fill the holes ranges and show it on the right.
 - ```save```: Save the inputs and outputs to the directory.
 - ```Original/Output```: Switch to show the original or output image.
+- `Manuals`: Display some basic instructions for the demo program.
 
 The steps are as follows:
+
 ```
 1. Select a model from 'options'
-2. Click the 'random' or 'load' button to get an input image.
-3. If you choose a random model, click the 'draw/clear' button to input free_form mask.
-4. If you choose a center model, the center mask has been given.
-5. click 'fill' button to get multiple results.
-6. click 'save' button to save the results.
+2. Click the 'random', 'load' or 'capture' button to get an input image.
+3. [Optional] If the image is loaded by 'load' or 'capture', and the program is running with human face model, click the 'crop face' button to automatically detect and align face. Do NOT apply 'crop face' if image is loaded by 'random'.
+4. If you choose a random model, click the 'draw/clear' button to input free_form mask.
+5. If you choose a center model, the center mask has been given.
+6. click 'fill' button to get multiple results.
+7. click 'save' button to save the results.
 ```
 
 ## Editing Example Results
